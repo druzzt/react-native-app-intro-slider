@@ -54,6 +54,9 @@ export default class AppIntroSlider extends React.Component {
   getListRef = () => this.flatList;
 
   _onNextPress = () => {
+    if(this.props.nextButtonQuitsCallback) {
+      this.props.nextButtonQuitsCallback();
+    }
     this.goToSlide(this.state.activeIndex + 1);
     this.props.onSlideChange &&
       this.props.onSlideChange(
